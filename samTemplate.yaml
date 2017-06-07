@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs6.10
-      CodeUri: https://github.com/CheolminConanShin/aws_lambda/blob/master/index.js
+      CodeUri: ./
       Events:
         MyTimeApi:
           Type: Api
