@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (lambdaModule) {
+let test = function (lambdaModule) {
     if(!lambdaModule['handler']) throw 'No handler function within given parameter.'
 
     var handler = lambdaModule.handler;
@@ -18,3 +18,14 @@ module.exports = function (lambdaModule) {
     };
     return obj;
 };
+
+module.exports = test;
+
+describe('TestLambda utility', () => {
+    it('should throw an error with a parameter does not include handler function', () => {
+        let target = {
+            'kindler': () => {}
+        };
+        (() => test(target)).should.throw()
+    })
+})
