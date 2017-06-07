@@ -2,17 +2,16 @@ version: 0.1
 phases:
   install:
     commands:
-      - npm install -g mocha
-      - npm install should
+      - npm install
 
   build:
     commands:
-      - mocha test/
+      - npm test
 
   post_build:
     commands:
-      - aws cloudformation package --template-file samTemplate.yaml --s3-bucket taco-stage
-                                   --output-template-file NewSamTemplate.yaml
+      - npm run package
+
 artifacts:
   type: zip
   files:
