@@ -2,7 +2,6 @@ version: 0.1
 phases:
   install:
     commands:
-      - npm install time
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket taco-stage
                                    --output-template-file NewSamTemplate.yaml
 artifacts:
